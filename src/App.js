@@ -6,11 +6,11 @@ import { createStore} from 'redux';
 
 const store = createStore(reducer);
 
-const initalState = {
+const initialState = {
   filterBy: ''
 }
 
-function reducer(state = initalState, action){
+function reducer(state = initialState, action){
   switch (action.type) {
     case 'SET_FILTER':
       return Object.assign({}, state, {
