@@ -1,6 +1,30 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { createStore} from 'redux';
+
+
+const store = createStore(reducer);
+
+const initalState = {
+  filterBy: ''
+}
+
+function reducer(state = initalState, action){
+  switch (action.type) {
+    case 'SET_FILTER':
+      return Object.assign({}, state, {
+        filterBy: action.by
+      })
+  
+    default:
+      return state
+  }
+}
+
+function setFilter(by) {
+  return { type: 'SET_FILTER', by};
+}
 
 const List = ({ items, filterBy }) => {  
   return (
